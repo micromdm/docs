@@ -4,8 +4,6 @@ url: rfcs/user-management
 menu:
   main:
     parent: "RFCs"
-    identifier: "User management in MDM"
-    weight: 20
 ---
 
 _For now this is just a bunch of ideas, if you just looking what this project is, don't take the following as a bill of functionalities. It's just brainstorming_

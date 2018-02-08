@@ -4,8 +4,6 @@ url: using-micromdm/self-signed
 menu:
   main:
     parent: "Using MicroMDM"
-    identifier: "Self-Signed Certificates"
-    weight: 10
 ---
 
 

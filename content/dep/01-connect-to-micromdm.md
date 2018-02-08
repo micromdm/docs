@@ -4,8 +4,6 @@ url: dep/connect-to-micromdm
 menu:
   main:
     parent: DEP
-    identifier: "Connect MicroMDM with DEP"
-    weight: 20
 ---
 
 To connect MicroMDM with DEP, you'll need to create a new virtual server in the DEP portal, and import the necessary credentials to micromdm:

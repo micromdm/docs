@@ -4,8 +4,6 @@ url: using-micromdm/systemd
 menu:
   main:
     parent: "Using MicroMDM"
-    identifier: "systemd"
-    weight: 20
 ---
 
 

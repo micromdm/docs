@@ -4,8 +4,6 @@ url: rfcs/admin-experience
 menu:
   main:
     parent: "RFCs"
-    identifier: "MDM and the Admin Experience"
-    weight: 10
 ---
 
 _For now this is just a bunch of ideas, if you just looking what this project is, don't take the following as a bill of functionalities. It's just brainstorming on ideal admin UX_

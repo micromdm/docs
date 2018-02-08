@@ -4,8 +4,6 @@ url: dep/generate-certificates
 menu:
   main:
     parent: DEP
-    identifier: "Generating MicroMDM DEP Certificates"
-    weight: 10
 ---
 
 **mdmctl** is utility that helps obtain a MDM Push Certificate using the Apple Developer MDM CSR option in the enterprise developer portal.

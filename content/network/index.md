@@ -13,14 +13,12 @@ Allow outbound connections to Apple’s 17.0.0.0/8 block, over TCP port 2195, 21
 ## MDM Server
 Allow outbound connections to Apple’s 17.0.0.0/8 block over TCP 443.
 
-| Port  | Description                                                                                       | Direction                                                                      |
-|------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| 443  | Required during device activation, and used as a fallback on Wi-Fi only, when devices are unable to communicate to APNs on port 5223.    | Outbound from MDM Server and clients to the APNs Server.                        |
-| 2195 | The port used to send notifications from the clients to APNs.                                  | Outbound from clients, and inbound to the APNs server. |
-| 2196 | The port used by the clients to connect to APNs for feedback.                             | Outbound from clients, and inbound to the APNs server. |
-| 5223 | The port used to send messages from APNs to the clients. | Outbound from clients, and inbound to the APNs server. |
-
-
+| Port | Description                                                                                                                           | Direction                                                |
+|------|---------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| 443  | Required during device activation, and used as a fallback on Wi-Fi only, when devices are unable to communicate to APNs on port 5223. | Outbound from MDM Server and clients to the APNs Server. |
+| 2195 | The port used to send notifications from the clients to APNs.                                                                         | Outbound from clients, and inbound to the APNs server.   |
+| 2196 | The port used by the clients to connect to APNs for feedback.                                                                         | Outbound from clients, and inbound to the APNs server.   |
+| 5223 | The port used to send messages from APNs to the clients.                                                                              | Outbound from clients, and inbound to the APNs server.   |
 
 For additional information:
 

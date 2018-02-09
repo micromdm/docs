@@ -1,0 +1,362 @@
+{
+  "info": {
+    "name": "micromdm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "version": "v0.0.0"
+  },
+  "item": [
+    {
+      "name": "Push",
+      "item": [
+        {
+          "name": "Send APNS Push for UDID",
+          "description": "Triggers an APNS notification for a specific Device UDID.",
+          "request": {
+            "url": "https://dev.micromdm.io/push/564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "GET"
+          }
+        },
+        {
+          "name": "Send APNS Push for UDID Duplicate",
+          "description": "Triggers an APNS notification for a specific Device UDID.",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/dep/devices?serials=MAC_SERIAL",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"serials\\\":[\\\"MAC_SERIAL\\\"]}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User Commands",
+      "item": [
+        {
+          "name": "LogOutUser",
+          "description": "List Users on macOs and shared ipad.\n\n##### Request\n\n    HTTP/1.1 200 OK\n    Strict-Transport-Security: max-age=63072000; includeSubDomains; preload\n    Date: Tue, 17 Oct 2017 12:42:18 GMT\n    Content-Length: 138\n    Content-Type: text/plain; charset=utf-8\n    Connection: close\n\n    {\n      \"payload\": {\n        \"CommandUUID\": \"bfd3a759-b4d3-4225-8844-bdec7104b84b\",\n        \"Command\": {\n          \"request_type\": \"UserList\"\n        }\n      }\n    }\n\n#### Response\n\n    <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n    <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n    <plist version=\"1.0\">\n    <dict>\n    \t<key>CommandUUID</key>\n    \t<string>bfd3a759-b4d3-4225-8844-bdec7104b84b</string>\n    \t<key>Status</key>\n    \t<string>Acknowledged</string>\n    \t<key>UDID</key>\n    \t<string>564DA875-35DE-E49B-7FCF-6A8FFBE52EF7</string>\n    \t<key>Users</key>\n    \t<array>\n    \t\t<dict>\n    \t\t\t<key>FullName</key>\n    \t\t\t<string>groob</string>\n    \t\t\t<key>IsLoggedIn</key>\n    \t\t\t<true/>\n    \t\t\t<key>MobileAccount</key>\n    \t\t\t<false/>\n    \t\t\t<key>UID</key>\n    \t\t\t<integer>501</integer>\n    \t\t\t<key>UserGUID</key>\n    \t\t\t<string>853EE121-D952-4D89-AFC7-83B1043FB901</string>\n    \t\t\t<key>UserName</key>\n    \t\t\t<string>groob</string>\n    \t\t</dict>\n    \t</array>\n    </dict>\n    </plist>\n",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\n  \\\"request_type\\\": \\\"LogoutUser\\\",\\n  \\\"udid\\\": \\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\"\\n}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "DeleteUser",
+          "description": "List Users on macOs and shared ipad.\n\n##### Request\n\n    HTTP/1.1 200 OK\n    Strict-Transport-Security: max-age=63072000; includeSubDomains; preload\n    Date: Tue, 17 Oct 2017 12:42:18 GMT\n    Content-Length: 138\n    Content-Type: text/plain; charset=utf-8\n    Connection: close\n\n    {\n      \"payload\": {\n        \"CommandUUID\": \"bfd3a759-b4d3-4225-8844-bdec7104b84b\",\n        \"Command\": {\n          \"request_type\": \"UserList\"\n        }\n      }\n    }\n\n#### Response\n\n    <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n    <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n    <plist version=\"1.0\">\n    <dict>\n    \t<key>CommandUUID</key>\n    \t<string>bfd3a759-b4d3-4225-8844-bdec7104b84b</string>\n    \t<key>Status</key>\n    \t<string>Acknowledged</string>\n    \t<key>UDID</key>\n    \t<string>564DA875-35DE-E49B-7FCF-6A8FFBE52EF7</string>\n    \t<key>Users</key>\n    \t<array>\n    \t\t<dict>\n    \t\t\t<key>FullName</key>\n    \t\t\t<string>groob</string>\n    \t\t\t<key>IsLoggedIn</key>\n    \t\t\t<true/>\n    \t\t\t<key>MobileAccount</key>\n    \t\t\t<false/>\n    \t\t\t<key>UID</key>\n    \t\t\t<integer>501</integer>\n    \t\t\t<key>UserGUID</key>\n    \t\t\t<string>853EE121-D952-4D89-AFC7-83B1043FB901</string>\n    \t\t\t<key>UserName</key>\n    \t\t\t<string>groob</string>\n    \t\t</dict>\n    \t</array>\n    </dict>\n    </plist>\n",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\n  \\\"request_type\\\": \\\"DeleteUser\\\",\\n  \\\"user_name\\\": \\\"_sandbox\\\",\\n  \\\"udid\\\": \\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\"\\n}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Query Information",
+      "item": [
+        {
+          "name": "DeviceInformation",
+          "description": "Queue default DeviceInformation command for a UDID.",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"request_type\\\":\\\"DeviceInformation\\\",\\\"udid\\\":\\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\"}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "SecurityInfo",
+          "description": "Queue default DeviceInformation command for a UDID.",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"request_type\\\":\\\"SecurityInfo\\\",\\\"udid\\\":\\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\"}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "UserList",
+          "description": "List Users on macOs and shared ipad.\n\n##### Request\n\n    HTTP/1.1 200 OK\n    Strict-Transport-Security: max-age=63072000; includeSubDomains; preload\n    Date: Tue, 17 Oct 2017 12:42:18 GMT\n    Content-Length: 138\n    Content-Type: text/plain; charset=utf-8\n    Connection: close\n\n    {\n      \"payload\": {\n        \"CommandUUID\": \"bfd3a759-b4d3-4225-8844-bdec7104b84b\",\n        \"Command\": {\n          \"request_type\": \"UserList\"\n        }\n      }\n    }\n\n#### Response\n\n    <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n    <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n    <plist version=\"1.0\">\n    <dict>\n    \t<key>CommandUUID</key>\n    \t<string>bfd3a759-b4d3-4225-8844-bdec7104b84b</string>\n    \t<key>Status</key>\n    \t<string>Acknowledged</string>\n    \t<key>UDID</key>\n    \t<string>564DA875-35DE-E49B-7FCF-6A8FFBE52EF7</string>\n    \t<key>Users</key>\n    \t<array>\n    \t\t<dict>\n    \t\t\t<key>FullName</key>\n    \t\t\t<string>groob</string>\n    \t\t\t<key>IsLoggedIn</key>\n    \t\t\t<true/>\n    \t\t\t<key>MobileAccount</key>\n    \t\t\t<false/>\n    \t\t\t<key>UID</key>\n    \t\t\t<integer>501</integer>\n    \t\t\t<key>UserGUID</key>\n    \t\t\t<string>853EE121-D952-4D89-AFC7-83B1043FB901</string>\n    \t\t\t<key>UserName</key>\n    \t\t\t<string>groob</string>\n    \t\t</dict>\n    \t</array>\n    </dict>\n    </plist>\n",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\n  \\\"request_type\\\": \\\"UserList\\\",\\n  \\\"udid\\\": \\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\"\\n}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Management",
+      "item": [
+        {
+          "name": "EraseDevice",
+          "description": "Lock the device immediately.",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"request_type\\\":\\\"EraseDevice\\\",\\\"udid\\\":\\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\",\\\"pin\\\":\\\"123456\\\"}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "DeviceLock",
+          "description": "Lock the device immediately.",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"request_type\\\":\\\"DeviceLock\\\",\\\"udid\\\":\\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\",\\\"pin\\\":\\\"123459\\\"}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Settings",
+          "description": "Lock the device immediately.",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"request_type\\\":\\\"Settings\\\",\\\"udid\\\":\\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\",\\\"settings\\\":[{\\\"item\\\":\\\"DeviceName\\\",\\\"device_name\\\":\\\"foo-bar-baz\\\"}]}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SoftwareUpdate Scan",
+      "item": [
+        {
+          "name": "ScheduleOSUpdateScan",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"request_type\\\":\\\"ScheduleOSUpdateScan\\\",\\\"udid\\\":\\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\"}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "AvailableOSUpdates",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"request_type\\\":\\\"AvailableOSUpdates\\\",\\\"udid\\\":\\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\"}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "OSUpdateStatus",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"request_type\\\":\\\"OSUpdateStatus\\\",\\\"udid\\\":\\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\"}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "ScheduleOSUpdate",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"request_type\\\":\\\"ScheduleOSUpdate\\\",\\\"udid\\\":\\\"564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4\\\"}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Misc",
+      "item": [
+        {
+          "name": "Block",
+          "description": "Triggers an APNS notification for a specific Device UDID.",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/devices/564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4/block",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST"
+          }
+        },
+        {
+          "name": "Send APNS Push for UserID",
+          "description": "Triggers an APNS notification for a specific Device UDID.",
+          "request": {
+            "url": "https://dev.micromdm.io/push/015C579B-BB67-4978-97F9-0D01BED615BD",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "GET"
+          }
+        },
+        {
+          "name": "InstallUserProfile",
+          "description": "List Users on macOs and shared ipad.\n\n##### Request\n\n    HTTP/1.1 200 OK\n    Strict-Transport-Security: max-age=63072000; includeSubDomains; preload\n    Date: Tue, 17 Oct 2017 12:42:18 GMT\n    Content-Length: 138\n    Content-Type: text/plain; charset=utf-8\n    Connection: close\n\n    {\n      \"payload\": {\n        \"CommandUUID\": \"bfd3a759-b4d3-4225-8844-bdec7104b84b\",\n        \"Command\": {\n          \"request_type\": \"UserList\"\n        }\n      }\n    }\n\n#### Response\n\n    <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n    <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n    <plist version=\"1.0\">\n    <dict>\n    \t<key>CommandUUID</key>\n    \t<string>bfd3a759-b4d3-4225-8844-bdec7104b84b</string>\n    \t<key>Status</key>\n    \t<string>Acknowledged</string>\n    \t<key>UDID</key>\n    \t<string>564DA875-35DE-E49B-7FCF-6A8FFBE52EF7</string>\n    \t<key>Users</key>\n    \t<array>\n    \t\t<dict>\n    \t\t\t<key>FullName</key>\n    \t\t\t<string>groob</string>\n    \t\t\t<key>IsLoggedIn</key>\n    \t\t\t<true/>\n    \t\t\t<key>MobileAccount</key>\n    \t\t\t<false/>\n    \t\t\t<key>UID</key>\n    \t\t\t<integer>501</integer>\n    \t\t\t<key>UserGUID</key>\n    \t\t\t<string>853EE121-D952-4D89-AFC7-83B1043FB901</string>\n    \t\t\t<key>UserName</key>\n    \t\t\t<string>groob</string>\n    \t\t</dict>\n    \t</array>\n    </dict>\n    </plist>\n",
+          "request": {
+            "url": "https://dev.micromdm.io/v1/commands",
+            "auth": {
+              "type": "basic"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"request_type\\\":\\\"InstallProfile\\\",\\\"udid\\\":\\\"564DA875-35DE-E49B-7FCF-6A8FFBE52EF7\\\",\\\"payload\\\":\\\"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhRE9DVFlQRSBwbGlzdCBQVUJMSUMgIi0vL0FwcGxlLy9EVEQgUExJU1QgMS4wLy9FTiIgImh0dHA6Ly93d3cuYXBwbGUuY29tL0RURHMvUHJvcGVydHlMaXN0LTEuMC5kdGQiPg0KPHBsaXN0IHZlcnNpb249IjEuMCI+DQo8ZGljdD4NCgk8a2V5PlBheWxvYWRDb250ZW50PC9rZXk+DQoJPGFycmF5Pg0KCQk8ZGljdD4NCgkJCTxrZXk+UGF5bG9hZERpc3BsYXlOYW1lPC9rZXk+DQoJCQk8c3RyaW5nPlNlY3VyaXR5ICZhbXA7IFByaXZhY3k8L3N0cmluZz4NCgkJCTxrZXk+UGF5bG9hZEVuYWJsZWQ8L2tleT4NCgkJCTx0cnVlLz4NCgkJCTxrZXk+UGF5bG9hZElkZW50aWZpZXI8L2tleT4NCgkJCTxzdHJpbmc+Y29tLmVjb3JwLmNvbmZpZy5zY3JlZW5zYXZlcjwvc3RyaW5nPg0KCQkJPGtleT5QYXlsb2FkVHlwZTwva2V5Pg0KCQkJPHN0cmluZz5jb20uYXBwbGUuc2NyZWVuc2F2ZXI8L3N0cmluZz4NCgkJCTxrZXk+UGF5bG9hZFVVSUQ8L2tleT4NCgkJCTxzdHJpbmc+OTY2ZWI3YmUtODFiZC1mOGNjLWYzZTMtMDc4ZDkzZjFiNGE0PC9zdHJpbmc+DQoJCQk8a2V5PlBheWxvYWRWZXJzaW9uPC9rZXk+DQoJCQk8aW50ZWdlcj4xPC9pbnRlZ2VyPg0KCQkJPGtleT5hc2tGb3JQYXNzd29yZDwva2V5Pg0KCQkJPHRydWUvPg0KICAgICAgICAgICAgPGtleT5hc2tGb3JQYXNzd29yZERlbGF5PC9rZXk+DQogICAgICAgICAgICA8aW50ZWdlcj41PC9pbnRlZ2VyPg0KCQk8L2RpY3Q+DQoJPC9hcnJheT4NCgk8a2V5PlBheWxvYWREZXNjcmlwdGlvbjwva2V5Pg0KCTxzdHJpbmc+RSBDb3JwIHNjcmVlbiBzYXZlciBzZXR0aW5nczwvc3RyaW5nPg0KCTxrZXk+UGF5bG9hZERpc3BsYXlOYW1lPC9rZXk+DQoJPHN0cmluZz5FIENvcnAgU2NyZWVuIFNhdmVyPC9zdHJpbmc+DQoJPGtleT5QYXlsb2FkSWRlbnRpZmllcjwva2V5Pg0KCTxzdHJpbmc+Y29tLmVjb3JwLmNvbmZpZy5zY3JlZW5zYXZlcjwvc3RyaW5nPg0KCTxrZXk+UGF5bG9hZE9yZ2FuaXphdGlvbjwva2V5Pg0KCTxzdHJpbmc+RSBDb3JwPC9zdHJpbmc+DQoJPGtleT5QYXlsb2FkUmVtb3ZhbERpc2FsbG93ZWQ8L2tleT4NCgk8ZmFsc2UvPg0KCTxrZXk+UGF5bG9hZFNjb3BlPC9rZXk+DQoJPHN0cmluZz5TeXN0ZW08L3N0cmluZz4NCgk8a2V5PlBheWxvYWRUeXBlPC9rZXk+DQoJPHN0cmluZz5Db25maWd1cmF0aW9uPC9zdHJpbmc+DQoJPGtleT5QYXlsb2FkVVVJRDwva2V5Pg0KCTxzdHJpbmc+MGRjMzE5YTAtYzMzMS0wMTMxLWVlYjUtMDAwYzI5NGFiODFiPC9zdHJpbmc+DQoJPGtleT5QYXlsb2FkVmVyc2lvbjwva2V5Pg0KCTxpbnRlZ2VyPjE8L2ludGVnZXI+DQo8L2RpY3Q+DQo8L3BsaXN0Pg0K\\\"}\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

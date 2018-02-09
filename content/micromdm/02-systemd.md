@@ -1,9 +1,10 @@
 ---
 title: "systemd"
-url: using-micromdm/systemd
+url: micromdm/systemd
+weight: 20
 menu:
   main:
-    parent: "Using MicroMDM"
+    parent: "MicroMDM"
 ---
 
 

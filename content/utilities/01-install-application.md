@@ -1,7 +1,12 @@
 ---
-title: Distribution
-url: distribution
+title: Install Application
+url: utilities/install-application
+weight: 10
+menu:
+  main:
+    parent: "Utilities"
 ---
+
 
 ## Package Repo
 The `-pkg-repo` flag points to a folder that contains signed packages and [application manifests](http://help.apple.com/deployment/osx/#/ior5df10f73a).

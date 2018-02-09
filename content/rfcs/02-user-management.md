@@ -1,6 +1,7 @@
 ---
 title: "User management in MDM"
 url: rfcs/user-management
+weight: 20
 menu:
   main:
     parent: "RFCs"

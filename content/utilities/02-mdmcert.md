@@ -1,6 +1,10 @@
 ---
 title: mdmcert
-url: mdmcert
+url: utilities/mdmcert
+weight: 20
+menu:
+  main:
+    parent: "Utilities"
 ---
 
 First, sign up for https://mdmcert.download and verify your email. Once you're linked to the instructions page, you can follow the steps below.

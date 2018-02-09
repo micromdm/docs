@@ -1,9 +1,11 @@
 ---
-title: Troubleshooting
-url: troubleshooting
+title: Known Issues
+url: troubleshooting/known-issues
+weight: 30
+menu:
+  main:
+    parent: "Troubleshooting"
 ---
-
-# Known issues with MDM
 
 ## storedownloadd
 * `storedownloadd` queue gets stuck after an unsuccessful download and the process must be restarted for future downloads to work.

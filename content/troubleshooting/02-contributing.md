@@ -1,6 +1,10 @@
 ---
 title: Contributing
-url: contributing
+url: troubleshooting/contributing
+weight: 20
+menu:
+  main:
+    parent: "Troubleshooting"
 ---
 
 # Contributing

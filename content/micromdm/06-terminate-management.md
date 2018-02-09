@@ -1,6 +1,10 @@
 ---
-title: Device Block
-url: device-block
+title: Terminate Management
+url: micromdm/terminate-management
+weight: 60
+menu:
+  main:
+    parent: "MicroMDM"
 ---
 
 ![](https://user-images.githubusercontent.com/1526945/33252691-acfa1952-d30d-11e7-800a-c9a271d697b5.png)

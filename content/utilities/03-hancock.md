@@ -1,6 +1,10 @@
 ---
 title: Hancock
-url: hancock
+url: utilities/hancock
+weight: 30
+menu:
+  main:
+    parent: "Utilities"
 ---
 
 By default, the enrollment profile served by MicroMDM is unsigned. This feature is on the roadmap, but for now you can use the [Hancock App](https://github.com/JeremyAgost/Hancock) to sign the profile. 

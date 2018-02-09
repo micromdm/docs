@@ -1,9 +1,10 @@
 ---
 title: "Self-Signed Certificates"
-url: using-micromdm/self-signed
+url: micromdm/self-signed
+weight: 10
 menu:
   main:
-    parent: "Using MicroMDM"
+    parent: "MicroMDM"
 ---
 
 

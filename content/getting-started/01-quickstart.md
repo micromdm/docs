@@ -1,6 +1,11 @@
 ---
 title: Quickstart
-url: quickstart
+url: getting-started/quickstart
+weight: 10
+menu:
+  main:
+    parent: "Getting Started"
+---
 ---
 
 # Introduction

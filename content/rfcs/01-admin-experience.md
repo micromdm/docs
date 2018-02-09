@@ -1,6 +1,7 @@
 ---
 title: "MDM and the Admin Experience"
 url: rfcs/admin-experience
+weight: 10
 menu:
   main:
     parent: "RFCs"

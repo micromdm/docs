@@ -1,6 +1,10 @@
 ---
 title: Bugs
-url: bugs
+url: troubleshooting/bugs
+weight: 10
+menu:
+  main:
+    parent: "Troubleshooting"
 ---
 
 List of known MDM/DEP/VPP related radars. 

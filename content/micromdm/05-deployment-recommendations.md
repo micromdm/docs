@@ -1,6 +1,10 @@
 ---
-title: Deployment
-url: deployment
+title: Deployment Recommendations
+url: micromdm/deployment
+weight: 50
+menu:
+  main:
+    parent: "MicroMDM"
 ---
 
 MicroMDM is a Go binary/Web Service which has the following deployment requirements/recommendations. 

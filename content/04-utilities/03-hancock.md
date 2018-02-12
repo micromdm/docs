@@ -12,7 +12,7 @@ You can also use the [ProfileSigner](https://github.com/nmcspadden/ProfileSigner
 
 1) Get the enrollment profile
 
-```
+```bash
 curl -o enroll.mobileconfig -L https://micromdm/mdm/enroll
 ```
 
@@ -25,6 +25,7 @@ Drag and drop avoids that.
 4) Click Sign. You will be prompted for credentials and then for a path to save your signed enrollment profile. 
 
 5. Import the enrollment profile to the server.
-```
+
+```bash
 mdmctl apply profiles -f /path/to/enroll.mobileconfig
 ```

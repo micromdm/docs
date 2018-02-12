@@ -57,7 +57,6 @@ canonifyurls = true
 	url    = "community"
 	weight = 70
 
-
 [[menu.main]]
 	name   = "RFCs"
 	url    = "rfcs"

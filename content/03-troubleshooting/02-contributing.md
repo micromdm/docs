@@ -16,7 +16,8 @@ This section will assist in troubleshooting issues that arise with your environm
 ## Common Errors
 
 ### Incorrect Go Version
-```
+
+```bash
 $ go build
 # github.com/micromdm/micromdm
 ./serve.go:232: unknown "net/http".Server field 'ReadHeaderTimeout' in struct literal
@@ -36,14 +37,16 @@ MicroMDM uses protobufs, or [protocol buffers](https://developers.google.com/pro
 Perhaps the easiest way to get these tools on a Mac is to have [Homebrew](https://brew.sh/) install the dependencies for you, then build protobuf from source:
 
 Install proto3 from source:
-```
+
+```bash
 brew install autoconf automake libtool
 git clone https://github.com/google/protobuf && cd protobuf
 ./autogen.sh && ./configure && make && make install
 ```
 
 Update protoc Go bindings via:
-```
+
+```bash
 go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
 ```
 

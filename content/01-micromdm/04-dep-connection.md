@@ -13,7 +13,7 @@ To connect MicroMDM with DEP, you'll need to create a new virtual server in the 
 
 First, extract the public key which you will need to upload when creating a new virtual server:
 
-```
+```bash
 mdmctl get dep-tokens -export-public-key /tmp/DEP_Public_key.pem
 ConsumerKey                               AccessTokenExpiry
 
@@ -30,14 +30,14 @@ Next, Go to the DEP portal and create a "MDM Server" (as its called in the DEP p
 
 Next, You'll have to import the downloaded `p7m` file somewhere that MicroMDM can access. 
 
-```
+```bash
 mdmctl apply dep-tokens -import /Users/groob/Downloads/my_dep_token.p7m
 imported DEP token
 ```
 
 If you see a `imported DEP token` message, your MDM server will now be able to sync devices from DEP.  You can check to see that the token imported correctly by just listing the DEP tokens:
 
-```
+```bash
 mdmctl get dep-tokens
 ConsumerKey                               AccessTokenExpiry
 CK_4e84a1be9638d4bce37443ff2dad55abcacb…  2018-04-22 07:54:12 +0000 UTC
@@ -46,7 +46,8 @@ CK_4e84a1be9638d4bce37443ff2dad55abcacb…  2018-04-22 07:54:12 +0000 UTC
 ## Exporting JSON token. 
 
 If you need to interact with DEP directly, there is an option to export the OAUTH token used by the server:
-```
+
+```bash
 mdmctl get dep-tokens -export-token /path/to/stoken.json
 ConsumerKey                               AccessTokenExpiry
 CK_4e84a1be9638d4bce37443ff2dad55abcacb…  2018-04-22 07:54:12 +0000 UTC

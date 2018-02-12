@@ -7,7 +7,6 @@ menu:
     parent: "Community"
 ---
 
-
 ## Blog Posts
 
 * Official [micromdm.io blog](http://micromdm.io/blog/)

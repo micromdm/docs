@@ -11,23 +11,24 @@ First, sign up for https://mdmcert.download and verify your email. Once you're l
 Make sure you use the same email address in the steps below as you used to sign up.
 
 Step 0. Make a folder to run the rest of the steps in.
-```
+
+```bash
 mkdir -p mdmcert
 cd mdmcert
 ```
 
 Step 1. Generate a certificate that will be used to decrypt the certificate payload from mdmcert.download
-```
+
+```bash
 openssl genrsa -out server.key 2048
 openssl rsa -in server.key -out server.key
 openssl req -sha256 -new -key server.key -out server.csr -subj "/CN=micromdm.mdmcert.download"
 openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
-
 ```
 
 The above steps will create the following files:
 
-```
+```bash
 .
 ├── server.crt
 ├── server.csr
@@ -35,13 +36,14 @@ The above steps will create the following files:
 ```
 
 Step 2. Create a Certificate Signing Request
-```
+
+```bash
 certhelper provider -csr -cn=mdm-certtool -password=secret -country=US -email=your_email@acme.co
 ```
 
 Now your folder will include the following files:
 
-```
+```bash
 ├── ProviderPrivateKey.key
 ├── ProviderUnsignedPushCertificateRequest.csr
 ├── server.crt
@@ -50,14 +52,16 @@ Now your folder will include the following files:
 ```
 
 Step 3. Create a request for mdmcert.download
-```
+
+```bash
 certhelper mdmcert.download -cert ./server.crt -csr=ProviderUnsignedPushCertificateRequest.csr -email=your_email@acme.co
 ```
 
 Wait for a file to be sent to your email. Might take a few minutes or up to a day. 
 
-Step 4. Download and decrypt the file. 
-```
+Step 4. Download and decrypt the file.
+
+```bash
 certhelper mdmcert.download -cert ./server.crt -key ./server.key -decode ./mdm_signed_request.20171122_094910_220.plist.b64.p7
 ```
 

@@ -12,13 +12,16 @@ menu:
 MicroMDM allows an administrator to force the device to trigger an HTTP Status 401 (Unauthorized) response by adding the device UDID to a `block`. The next time the device connects to the server to receive a command, it will be forced to unenroll. 
 
 Add a block:
-```
+
+```bash
 mdmctl apply block -udid=564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4
 ```
+
 The command will add the UDID to a list of device blocks and also trigger a push notification, causing the device to connect ASAP.
 
 The enrollment status can be checked by running `mdmctl get devices`. 
-```
+
+```bash
 mdmctl get devices
 
 UDID                                      SerialNumber  EnrollmentStatus  LastSeen
@@ -28,7 +31,8 @@ UDID                                      SerialNumber  EnrollmentStatus  LastSe
 The device will be allowed to re-enroll should the enrollment profile be installed again, but will be checked out unless the block is removed. 
 
 Removing the device block is similar to adding it:
-```
+
+```bash
 mdmctl remove block -udid=564DF4AE-96B5-72BF-02C4-6B8B94BA5BF4
 ```
 

@@ -6,7 +6,6 @@ menu:
   main:
     parent: "Getting Started"
 ---
----
 
 # Introduction
 
@@ -38,17 +37,20 @@ If you're using the `certhelper` tool to request a certificate through `mdmcert.
 2) Run the binary.
 
 For .p12 Push Certificates
-```
-sudo micromdm serve \
+
+```bash
+$ sudo micromdm serve \
   -apns-cert /path/to/mdm_push_cert.p12 \
   -apns-password=password_for_p12 \
   -server-url=https://my-server-url \
   -filerepo /path/to/pkg/folder
 
 ```
+
 For .pem Push Certificates
-```
-sudo micromdm serve \
+
+```bash
+$ sudo micromdm serve \
   -apns-cert /path/to/mdm_push_cert.pem \
   -apns-key /path/to/ProviderPrivateKey.key \
   -apns-password=password_for_privatekey \
@@ -67,16 +69,16 @@ If everything went well, the binary should be running. You can go to `https://yo
 # Connecting mdmctl
 To setup mdmctl to connect to the micromdm server you need to set some configuration parameters (which save to `~/.micromdm/default.json`):
 
-```
-mdmctl config set \
+```bash
+$ mdmctl config set \
   -api-token MySecretAPIKey \
   -server-url https://my-server-url \
 ```
 
 You'll also need to provide the `-api-key` switch with the same password to the `micromdm serve` command:
 
-```
-sudo micromdm serve \
+```bash
+$ sudo micromdm serve \
   -api-key MySecretAPIKey \
 ...
 ```
@@ -90,9 +92,10 @@ This must be done before establishing DEP profiles for devices.
 
 Once you're connected to DEP and can sync devices, you can assign a profile to them:
 
-Use `mdmctl` to generate a sample profile.json. Note the list of serial numbers to assign the profile to. 
-```
-mdmctl apply dep-profiles -template > /tmp/profile.json
+Use `mdmctl` to generate a sample profile.json. Note the list of serial numbers to assign the profile to.
+
+```bash
+$ mdmctl apply dep-profiles -template > /tmp/profile.json
 {
    "profile_name": "Test Profile",
    "url":"https://dev.micromdm.io/mdm/enroll",
@@ -108,7 +111,8 @@ mdmctl apply dep-profiles -template > /tmp/profile.json
 ```
 
 Assign the profile:
-```
+
+```bash
 $ mdmctl apply dep-profiles -f /tmp/profile.json
 Defined DEP Profile with UUID 4B05B09E8AC7E7FC12C8F3338E099310
 
@@ -134,18 +138,20 @@ DEP enrollment is cool and all, but we want to be able to enforce some kind of c
 ## Profiles
 MicroMDM stores profiles in its database for use with Blueprints. To store a profile use this invocation:
 
-```
+```bash
 $ mdmctl apply profiles -f /path/to/MyProfile.mobileconfig
 
 $ mdmctl get profiles
 Identifier             Length
 com.example.MyProfile  874
 ```
+
 ## Applications
 MDM is capable of installing [distribution style pkgs](https://github.com/micromdm/micromdm/wiki/distributing-packages-with-InstallApplication) if they are signed. MicroMDM attempts to make this option simple for the user. the `mdmctl` command can sign and upload a pkg file to the MicroMDM server's filerepo directory.
 
 Assuming you have a a developer certificate to sign the pkg in the keychain(or if the package is already signed), here is how you'd import munkitools:
-```
+
+```bash
 mdmctl apply app -pkg ~/Desktop/mdmvid/munkitools-3.0.0.3333.pkg -sign "Developer ID Installer: groob (myid)" -upload
 ```
 
@@ -156,7 +162,8 @@ You can use the `mdmctl get apps` command to query the list of imported apps and
 A blueprint is a JSON file which contains a list of Application Manifest URLs and Profile identifiers and an array of apply-at directives.
 
 The blueprint JSON file contains a few keys. To generate a sample file use the `-template flag`:
-```
+
+```bash
 $ mdmctl apply blueprints -template
 {
   "uuid": "a480e3ee-a96b-4a4d-abcd-1af07229cc7e",
@@ -180,7 +187,7 @@ The profile paths can be anywhere on the computer where micromdm is running.
 Modify a profile to include URLs paths to app manifests and profile IDs that have been uploaded:
 
 
-```
+```bash
 $ mdmctl apply blueprints -f /path/to/blueprint
 
 $ mdmctl get blueprints
@@ -195,7 +202,8 @@ The "Apply At" (or "apply_at" in the JSON above) tells the when the MDM server w
 MicroMDM supports a custom commands API that you can use to queue commands. 
 To do so, send a JSON command as a POST request to `/v1/commands`.
 The API supports the vast majority of MDM commands specified in the MDM protocol reference, but the API still needs full documentation (See Issue [#78](https://github.com/micromdm/micromdm/issues/78)). 
-```
+
+```bash
 POST /v1/commands
 {
     "request_type": "InstallApplication",
@@ -207,9 +215,11 @@ POST /v1/commands
 
 For both scheduling a command and sending a push notification, you will need to know the device's UDID. 
 The simplest way to do that is to run 
+
+```bash
+$ mdmctl get devices
 ```
-mdmctl get devices
-```
+
 which will print some details about a device, including the UDID. 
 
 Note you may need to authenticate to the API if you specified an API key with the `-api-key` parameter. If this is on the API will require HTTP Basic authentication. The username is "micromdm" and the password will be your API key.

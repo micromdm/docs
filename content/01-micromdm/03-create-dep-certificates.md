@@ -66,7 +66,7 @@ Create a new certificate.  In the Notes field make sure you declare what server 
     
 Upload the **PushCertificateRequest.plist**
 
-Download the **MDM_ Acme. _Certificate.pem** file
+Download the **MDM_\ Acme\ Inc_Certificate.pem** file
 
 Keep this file in your `mdm-certificates` folder to stay organized
 
@@ -80,7 +80,7 @@ The following command will upload your push certificate to micromdm
 
 Now you need to download the DEP Public Key from MicroMDM, and use that key to register with [deploy.apple.com](http://deploy.apple.com/)
 
-```
+```bash
 mdmctl get dep-tokens -export-public-key mdm-certificates/DEPPublicKey
 ```
 
@@ -104,7 +104,7 @@ Move the server token into your `mdm-certificates` folder for organization.
 
 Now upload the `.p7m` to micromdm
 
-```
+```bash
 mdmctl apply dep-tokens -import mdm-certificates/Server\ Name_Token_2017-11-10T18-20-57Z_smime.p7m
 ```
 and you should get a positive response `imported DEP token`
@@ -114,7 +114,7 @@ and you should get a positive response `imported DEP token`
 
 Here is a listing of all the files in the `mdm-certificates` folder:
 
-```
+```bash
 └── mdm-certificates
     # Push Certificate downloaded from identity.apple.com (final step).
     ├── MDM_\ Acme\ Inc_Certificate.pem 

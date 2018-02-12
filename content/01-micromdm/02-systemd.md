@@ -7,11 +7,12 @@ menu:
     parent: "MicroMDM"
 ---
 
+When you're just starting to use micromdm on a server, you might run
 
-When you're just starting to use micromdm on a server, you might run 
-```
+```bash
 micromdm serve -server-url=https://mdm.acme.co
-``` 
+```
+
 and follow the output directly. But as soon as you close your terminal/ssh session the server will stop running. 
 
 A standard way to run services on linux is using [`systemd`](https://coreos.com/os/docs/latest/getting-started-with-systemd.html). Systemd has a number of benefits, but mainly:
@@ -23,7 +24,7 @@ A standard way to run services on linux is using [`systemd`](https://coreos.com/
 Getting started is easy. 
 First, create a file like called `micromdm.service` on your linux host. 
 
-```
+```bash
 [Unit]
 Description=MicroMDM MDM Server
 Documentation=https://github.com/micromdm/micromdm
@@ -44,7 +45,7 @@ Note that the `ExecStart` should have the `micromdm serve` command with the conf
 
 Once you created the file, you need to move it to `/etc/systemd/system/micromdm.service` and start the service.
 
-```
+```bash
 sudo mv micromdm.service /etc/systemd/system/micromdm.service
 sudo systemctl start micromdm.service
 sudo systemctl status micromdm.service
@@ -58,8 +59,9 @@ Use `sudo journalctl -u micromdm.service -f` to tail the server logs.
 
 Sometimes you'll need to update the systemd unit file defining the service. To do that, first open `/etc/systemd/system/micromdm.service` in a text editor, and apply your changes. 
 
-Then, run 
-```
+Then, run
+
+```bash
 sudo systemctl daemon-reload
 sudo systemctl restart micromdm.service
 ```
